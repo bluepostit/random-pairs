@@ -1,6 +1,6 @@
 {
     "name": "random-pairs",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Generate random pairings of a given list of items",
     "type": "module",
     "source": [
@@ -17,6 +17,7 @@
     "files": [
         "dist/*"
     ],
+    "bin": "./dist/main.modern.cjs",
     "scripts": {
         "dev": "microbundle --output dist --watch",
         "build": "microbundle --output dist",
