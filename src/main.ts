@@ -1,6 +1,6 @@
-import generateRandomPairs from './index.js'
+import generateRandomPairs from './index'
 
-const logPairs = pairs => {
+const logPairs = <T>(pairs: Array<Array<T>>) => {
     pairs.forEach(([itemA, itemB]) => {
         console.log(`${itemA} - ${itemB || ''}`)
     })
