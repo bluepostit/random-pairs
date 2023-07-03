@@ -1,3 +1,4 @@
+import cliParse from 'command-line-args'
 import generateRandomPairs from './index'
 
 const logPairs = <T>(pairs: Array<Array<T>>) => {
@@ -5,6 +6,21 @@ const logPairs = <T>(pairs: Array<Array<T>>) => {
         console.log(`${itemA} - ${itemB || ''}`)
     })
 }
+
+const cliParams = [
+    {
+        name: 'items',
+        alias: 'i',
+        type: String,
+        multiple: true
+    }
+    // {
+    //     name: 'previous-pairs',
+    //     alias: 'p',
+    //     type: String,
+    //     multiple: true
+    // }
+]
 
 const showUsage = () => {
     const usage = `
@@ -19,7 +35,8 @@ If an odd number of items is given, one will end up unpaired.
 }
 
 const main = () => {
-    const items = process.argv.slice(2)
+    const cliOptions = cliParse(cliParams)
+    const items = cliOptions.items
 
     if (items.length < 1) {
         showUsage()
