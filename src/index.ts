@@ -1,7 +1,7 @@
-const randomIndex = array => Math.floor(Math.random() * array.length)
+const randomIndex = <T>(array: T[]) => Math.floor(Math.random() * array.length)
 
-const generateRandomPairs = array => {
-    const pairs = []
+const generateRandomPairs = <T>(array: T[]) => {
+    const pairs: Array<Array<T>> = []
     const items = [...array]
     while (items.length > 0) {
         const [itemA] = items.splice(randomIndex(items), 1)

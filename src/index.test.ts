@@ -1,4 +1,4 @@
-import generateRandomPairs from '.'
+import generateRandomPairs from './index'
 
 describe('generateRandomPairs()', () => {
     it('returns an empty array when given an empty array', () => {
@@ -14,7 +14,7 @@ describe('generateRandomPairs()', () => {
             ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
         ]
         arrays.forEach(array => {
-            const result = generateRandomPairs(array)
+            const result = generateRandomPairs<(typeof array)[0]>(array)
             result.forEach(child => {
                 expect(Array.isArray(child)).toBe(true)
             })
@@ -28,7 +28,7 @@ describe('generateRandomPairs()', () => {
             ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
         ]
         arrays.forEach(array => {
-            const result = generateRandomPairs(array)
+            const result = generateRandomPairs<(typeof array)[0]>(array)
             expect(result.length).toBe(array.length / 2)
         })
     })
@@ -40,7 +40,7 @@ describe('generateRandomPairs()', () => {
             ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
         ]
         arrays.forEach(array => {
-            const result = generateRandomPairs(array)
+            const result = generateRandomPairs<(typeof array)[0]>(array)
             expect(result.length).toBe(Math.ceil(array.length / 2))
         })
     })
@@ -52,7 +52,7 @@ describe('generateRandomPairs()', () => {
             ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
         ]
         arrays.forEach(array => {
-            const result = generateRandomPairs(array)
+            const result = generateRandomPairs<(typeof array)[0]>(array)
             for (let item of array) {
                 let found = 0
                 for (let subArray of result) {
@@ -73,7 +73,7 @@ describe('generateRandomPairs()', () => {
             ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
         ]
         arrays.forEach(array => {
-            const result = generateRandomPairs(array)
+            const result = generateRandomPairs<(typeof array)[0]>(array)
             result.forEach(subArray => {
                 expect(subArray.length).toBe(2)
             })
@@ -87,7 +87,7 @@ describe('generateRandomPairs()', () => {
             ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
         ]
         arrays.forEach(array => {
-            const result = generateRandomPairs(array)
+            const result = generateRandomPairs<(typeof array)[0]>(array)
             let foundSingleItemArrays = 0
             for (let subArray of result) {
                 if (subArray.length === 0) {
